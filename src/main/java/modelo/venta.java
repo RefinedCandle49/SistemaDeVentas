@@ -3,6 +3,16 @@ package modelo;
 public class venta {
     int id;
 
+    public int getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
+    }
+
+    int idEmpleado;
+
     public int getId() {
         return id;
     }

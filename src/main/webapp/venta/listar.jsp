@@ -17,29 +17,32 @@
     List<venta> miLista = VentaDAO.listar();
     request.setAttribute("list", miLista);
 %>
-<div>
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Cliente</th>
-            <th>Empleado</th>
-            <th>Fecha</th>
-            <th>Monto</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="vent" items="${list}">
+<main>
+    <a href="registrar.jsp">Registrar venta</a>
+    <div>
+        <table>
+            <thead>
             <tr>
-                <td>${vent.getId()}</td>
-                <td>${vent.getCliente()}</td>
-                <td>${vent.getApellidoEmpleado()}, ${vent.getNombreEmpleado()}</td>
-                <td>${vent.getFechaVenta()}</td>
-                <td>${vent.getMonto()}</td>
+<%--                <th>ID</th>--%>
+                <th>Cliente</th>
+                <th>Empleado</th>
+                <th>Fecha</th>
+                <th>Monto</th>
             </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+            <c:forEach var="vent" items="${list}">
+                <tr>
+<%--                    <td>${vent.getId()}</td>--%>
+                    <td>${vent.getCliente()}</td>
+                    <td>${vent.getApellidoEmpleado()}, ${vent.getNombreEmpleado()}</td>
+                    <td>${vent.getFechaVenta()}</td>
+                    <td>${vent.getMonto()}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+</main>
 </body>
 </html>
