@@ -37,7 +37,7 @@
         <label>
             Empleado:
             <select name="idEmpleado" required>
-                <option value="">Select</option>
+                <option value="" disabled selected style="display:none;">Seleccionar opción</option>
                 <c:forEach var="emp" items="${list}">
                     <option value="${emp.getId()}">${emp.getApellido()}, ${emp.getNombre()}</option>
                 </c:forEach>
