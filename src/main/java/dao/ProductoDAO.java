@@ -36,7 +36,7 @@ public class ProductoDAO {
         int estado = 0;
         try {
             Connection con = getConnection();
-            PreparedStatement ps = con.prepareStatement("INSERT INTO producto (nombreProducto, idProveedor, idCategoria, precioUnitario, unidadesStock) VALUES (?, ?, ?, ?, ?)");
+            PreparedStatement ps = con.prepareStatement("INSERT INTO producto (nombreProducto, idProveedor, idCategoria, precioUnitario, unidadesStock) VALUES (?, ?, ?, ?, ?) ORDER BY nombreProducto ASC");
             ps.setString(1, prod.getNombreProducto());
             ps.setInt(2, prod.getIdProveedor());
             ps.setInt(3, prod.getIdCategoria());

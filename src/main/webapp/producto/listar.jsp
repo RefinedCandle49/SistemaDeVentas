@@ -18,31 +18,34 @@
     List<producto> miLista = ProductoDAO.listar();
     request.setAttribute("list", miLista);
 %>
-<div>
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Producto</th>
-            <th>Empresa</th>
-            <th>Categoría</th>
-            <th>Precio Unitario</th>
-            <th>Stock</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="prod" items="${list}">
+<main>
+    <a href="registrar.jsp">Registrar proveedor</a>
+    <div>
+        <table>
+            <thead>
             <tr>
-                <td>${prod.getId()}</td>
-                <td>${prod.getNombreProducto()}</td>
-                <td>${prod.getRazonSocial()}</td>
-                <td>${prod.getNombreCategoria()}</td>
-                <td>${prod.getPrecioUnitario()}</td>
-                <td>${prod.getUnidadesStock()}</td>
+                <th>ID</th>
+                <th>Producto</th>
+                <th>Empresa</th>
+                <th>Categoría</th>
+                <th>Precio Unitario</th>
+                <th>Stock</th>
             </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+            <c:forEach var="prod" items="${list}">
+                <tr>
+                    <td>${prod.getId()}</td>
+                    <td>${prod.getNombreProducto()}</td>
+                    <td>${prod.getRazonSocial()}</td>
+                    <td>${prod.getNombreCategoria()}</td>
+                    <td>${prod.getPrecioUnitario()}</td>
+                    <td>${prod.getUnidadesStock()}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+</main>
 </body>
 </html>
