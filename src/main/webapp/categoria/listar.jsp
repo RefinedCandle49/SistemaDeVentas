@@ -22,7 +22,7 @@
         <table>
             <thead>
             <tr>
-                <th>ID</th>
+<%--                <th>ID</th>--%>
                 <th>Categoría:</th>
                 <th>Descripción</th>
             </tr>
@@ -30,7 +30,7 @@
             <tbody>
             <c:forEach var="cat" items="${list}">
                 <tr>
-                    <td>${cat.getId()}</td>
+<%--                    <td>${cat.getId()}</td>--%>
                     <td>${cat.getNombreCategoria()}</td>
                     <td>${cat.getDescripcion()}</td>
                 </tr>

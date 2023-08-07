@@ -24,7 +24,7 @@
         <table>
             <thead>
             <tr>
-                <th>ID</th>
+<%--                <th>ID</th>--%>
                 <th>Producto</th>
                 <th>Empresa</th>
                 <th>Categoría</th>
@@ -35,7 +35,7 @@
             <tbody>
             <c:forEach var="prod" items="${list}">
                 <tr>
-                    <td>${prod.getId()}</td>
+<%--                    <td>${prod.getId()}</td>--%>
                     <td>${prod.getNombreProducto()}</td>
                     <td>${prod.getRazonSocial()}</td>
                     <td>${prod.getNombreCategoria()}</td>

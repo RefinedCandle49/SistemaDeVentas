@@ -12,7 +12,7 @@ public class CategoriaDAO {
         List<categoria> list = new ArrayList<categoria>();
         try {
             Connection con = getConnection();
-            PreparedStatement ps = con.prepareStatement("SELECT id, nombreCategoria, descripcion FROM categoria WHERE idEstado = 1");
+            PreparedStatement ps = con.prepareStatement("SELECT id, nombreCategoria, descripcion FROM categoria WHERE idEstado = 1 ORDER BY nombreCategoria ASC");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()){

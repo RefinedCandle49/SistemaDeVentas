@@ -23,7 +23,7 @@
     <table>
       <thead>
       <tr>
-        <th>ID</th>
+<%--        <th>ID</th>--%>
         <th>Razón social</th>
         <th>Representante</th>
         <th>Dirección</th>
@@ -33,7 +33,7 @@
       <tbody>
       <c:forEach var="prov" items="${list}">
         <tr>
-          <td>${prov.getId()}</td>
+<%--          <td>${prov.getId()}</td>--%>
           <td>${prov.getRazonSocial()}</td>
           <td>${prov.getRepresentante()}</td>
           <td>${prov.getDireccion()}</td>
