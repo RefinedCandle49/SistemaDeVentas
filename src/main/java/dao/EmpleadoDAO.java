@@ -11,7 +11,7 @@ public class EmpleadoDAO {
         List<empleado> list = new ArrayList<empleado>();
         try {
             Connection con = getConnection();
-            PreparedStatement ps = con.prepareStatement("SELECT id, nombre, apellido, dni FROM empleado WHERE idEstado = 1");
+            PreparedStatement ps = con.prepareStatement("SELECT id, nombre, apellido, dni FROM empleado WHERE idEstado = 1 ORDER BY apellido ASC");
             ResultSet rs = ps.executeQuery();
 
             while(rs.next()){
@@ -27,5 +27,21 @@ public class EmpleadoDAO {
             System.out.println(e);
         }
         return list;
+    }
+
+    public static int registrar(empleado emp){
+        int estado = 0;
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("INSERT INTO empleado (nombre, apellido, dni) VALUES (?, ?, ?)");
+            ps.setString(1, emp.getNombre());
+            ps.setString(2, emp.getApellido());
+            ps.setString(3, emp.getDni());
+
+            estado = ps.executeUpdate();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return estado;
     }
 }

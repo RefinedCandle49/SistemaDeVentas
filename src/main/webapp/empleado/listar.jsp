@@ -17,27 +17,30 @@
     List<empleado> miLista = EmpleadoDAO.listar();
     request.setAttribute("list", miLista);
 %>
-<div>
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>DNI</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="emp" items="${list}">
+<main>
+    <a href="registrar.jsp">Registrar empleado</a>
+    <div>
+        <table>
+            <thead>
             <tr>
-                <td>${emp.getId()}</td>
-                <td>${emp.getNombre()}</td>
-                <td>${emp.getApellido()}</td>
-                <td>${emp.getDni()}</td>
+<%--                <th>ID</th>--%>
+                <th>Apellido</th>
+                <th>Nombre</th>
+                <th>DNI</th>
             </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+            <c:forEach var="emp" items="${list}">
+                <tr>
+<%--                    <td>${emp.getId()}</td>--%>
+                    <td>${emp.getApellido()}</td>
+                    <td>${emp.getNombre()}</td>
+                    <td>${emp.getDni()}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+</main>
 </body>
 </html>

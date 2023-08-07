@@ -30,4 +30,21 @@ public class ProveedorDAO {
         }
         return list;
     }
+
+    public static int registrar(proveedor prov){
+        int estado = 0;
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("INSERT INTO proveedor (razonSocial, representante, direccion, telefono) VALUES (?, ?, ?, ?)");
+            ps.setString(1, prov.getRazonSocial());
+            ps.setString(2, prov.getRepresentante());
+            ps.setString(3, prov.getDireccion());
+            ps.setString(4, prov.getTelefono());
+
+            estado = ps.executeUpdate();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return estado;
+    }
 }

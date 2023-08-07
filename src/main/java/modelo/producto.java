@@ -1,7 +1,28 @@
 package modelo;
 
 public class producto {
-    int id, unidadesStock, idEstado;
+    int id;
+    int unidadesStock;
+    int idEstado;
+    int idProveedor;
+
+    public int getIdProveedor() {
+        return idProveedor;
+    }
+
+    public void setIdProveedor(int idProveedor) {
+        this.idProveedor = idProveedor;
+    }
+
+    public int getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+
+    int idCategoria;
 
     public int getId() {
         return id;

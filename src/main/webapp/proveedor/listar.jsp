@@ -17,29 +17,32 @@
   List<proveedor> miLista = ProveedorDAO.listar();
   request.setAttribute("list", miLista);
 %>
-<div>
-  <table>
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Razón social</th>
-      <th>Representante</th>
-      <th>Dirección</th>
-      <th>Teléfono</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="prov" items="${list}">
+<main>
+  <a href="registrar.jsp">Registrar proveedor</a>
+  <div>
+    <table>
+      <thead>
       <tr>
-        <td>${prov.getId()}</td>
-        <td>${prov.getRazonSocial()}</td>
-        <td>${prov.getRepresentante()}</td>
-        <td>${prov.getDireccion()}</td>
-        <td>${prov.getTelefono()}</td>
+        <th>ID</th>
+        <th>Razón social</th>
+        <th>Representante</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
       </tr>
-    </c:forEach>
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody>
+      <c:forEach var="prov" items="${list}">
+        <tr>
+          <td>${prov.getId()}</td>
+          <td>${prov.getRazonSocial()}</td>
+          <td>${prov.getRepresentante()}</td>
+          <td>${prov.getDireccion()}</td>
+          <td>${prov.getTelefono()}</td>
+        </tr>
+      </c:forEach>
+      </tbody>
+    </table>
+  </div>
+</main>
 </body>
 </html>

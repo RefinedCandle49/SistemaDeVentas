@@ -5,7 +5,7 @@
   Time: 21:23
   To change this template use File | Settings | File Templates.--%>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -16,25 +16,28 @@
     List<categoria> miLista = CategoriaDAO.listar();
     request.setAttribute("list", miLista);
 %>
-<div>
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="cat" items="${list}">
+<main>
+    <a href="registrar.jsp">Registrar categoria</a>
+    <div>
+        <table>
+            <thead>
             <tr>
-                <td>${cat.getId()}</td>
-                <td>${cat.getNombreCategoria()}</td>
-                <td>${cat.getDescripcion()}</td>
+                <th>ID</th>
+                <th>Categoría:</th>
+                <th>Descripción</th>
             </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+            <c:forEach var="cat" items="${list}">
+                <tr>
+                    <td>${cat.getId()}</td>
+                    <td>${cat.getNombreCategoria()}</td>
+                    <td>${cat.getDescripcion()}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+</main>
 </body>
 </html>

@@ -31,26 +31,23 @@ public class ProductoDAO {
         }
         return list;
     }
-/*    public static List<producto> listar(){
-        List<producto> list = new ArrayList<producto>();
+
+    public static int registrar(producto prod){
+        int estado = 0;
         try {
             Connection con = getConnection();
-            PreparedStatement ps = con.prepareStatement("SELECT id, nombreProducto, idProveedor, idCategoria, precioUnitario, unidadesStock FROM producto WHERE idEstado = 1;");
-            ResultSet rs = ps.executeQuery();
+            PreparedStatement ps = con.prepareStatement("INSERT INTO producto (nombreProducto, idProveedor, idCategoria, precioUnitario, unidadesStock) VALUES (?, ?, ?, ?, ?)");
+            ps.setString(1, prod.getNombreProducto());
+            ps.setInt(2, prod.getIdProveedor());
+            ps.setInt(3, prod.getIdCategoria());
+            ps.setFloat(4, prod.getPrecioUnitario());
+            ps.setInt(5, prod.getUnidadesStock());
 
-            while (rs.next()){
-                producto prod = new producto();
-                prod.setId(rs.getInt("id"));
-                prod.setNombreProducto(rs.getString("nombreProducto"));
-                prod.setIdProveedor(rs.getInt("idProveedor"));
-                prod.setIdCategoria(rs.getInt("idCategoria"));
-                prod.setPrecioUnitario(rs.getFloat("precioUnitario"));
-                prod.setUnidadesStock(rs.getInt("unidadesStock"));
-                list.add(prod);
-            }
+            estado = ps.executeUpdate();
         }catch (Exception e){
             System.out.println(e);
         }
-        return list;
-    }*/
+        return estado;
+    }
+
 }

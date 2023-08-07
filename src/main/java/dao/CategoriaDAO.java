@@ -28,4 +28,19 @@ public class CategoriaDAO {
         }
         return list;
     }
+
+    public static int registrar(categoria cat){
+        int estado = 0;
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("INSERT INTO categoria (nombreCategoria, descripcion) VALUES (?, ?)");
+            ps.setString(1, cat.getNombreCategoria());
+            ps.setString(2, cat.getDescripcion());
+
+            estado = ps.executeUpdate();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return estado;
+    }
 }

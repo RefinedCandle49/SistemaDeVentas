@@ -54,19 +54,4 @@ public class VentaDAO {
         return formato.format(fecha);
     }
 
-/*    public static int registrar(venta vent){
-        int estado = 0;
-        try {
-            Connection con = getConnection();
-            PreparedStatement ps = con.prepareStatement("INSERT INTO venta (cliente, idEmpleado, fechaVenta) VALUES (?, ?, ?)");
-            ps.setString(1, vent.getCliente());
-            ps.setInt(2, vent.getIdEmpleado());
-            ps.setString(3, vent.getFechaVenta());
-
-            estado = ps.executeUpdate();
-        }catch (Exception e) {
-            System.out.println(e);
-        }
-        return estado;
-    }*/
 }
