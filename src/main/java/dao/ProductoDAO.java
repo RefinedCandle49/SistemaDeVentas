@@ -13,7 +13,7 @@ public class ProductoDAO {
         List<producto> list = new ArrayList<producto>();
         try {
             Connection con = getConnection();
-            PreparedStatement ps = con.prepareStatement("SELECT producto.id, nombreProducto, proveedor.razonSocial, categoria.nombreCategoria, precioUnitario, unidadesStock FROM producto INNER JOIN proveedor on proveedor.id = producto.idProveedor INNER JOIN categoria on producto.idCategoria = categoria.id WHERE producto.idEstado = 1");
+            PreparedStatement ps = con.prepareStatement("SELECT producto.id, nombreProducto, proveedor.razonSocial, categoria.nombreCategoria, precioUnitario, unidadesStock FROM producto INNER JOIN proveedor on proveedor.id = producto.idProveedor INNER JOIN categoria on producto.idCategoria = categoria.id WHERE producto.idEstado = 1 ORDER BY nombreProducto ASC");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()){
@@ -36,7 +36,7 @@ public class ProductoDAO {
         int estado = 0;
         try {
             Connection con = getConnection();
-            PreparedStatement ps = con.prepareStatement("INSERT INTO producto (nombreProducto, idProveedor, idCategoria, precioUnitario, unidadesStock) VALUES (?, ?, ?, ?, ?) ORDER BY nombreProducto ASC");
+            PreparedStatement ps = con.prepareStatement("INSERT INTO producto (nombreProducto, idProveedor, idCategoria, precioUnitario, unidadesStock) VALUES (?, ?, ?, ?, ?)");
             ps.setString(1, prod.getNombreProducto());
             ps.setInt(2, prod.getIdProveedor());
             ps.setInt(3, prod.getIdCategoria());
