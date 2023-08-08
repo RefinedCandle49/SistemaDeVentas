@@ -24,9 +24,9 @@
             <thead>
             <tr>
 <%--                <th>ID</th>--%>
+                <th>Fecha</th>
                 <th>Cliente</th>
                 <th>Empleado</th>
-                <th>Fecha</th>
                 <th>Monto</th>
             </tr>
             </thead>
@@ -34,15 +34,19 @@
             <c:forEach var="vent" items="${list}">
                 <tr>
 <%--                    <td>${vent.getId()}</td>--%>
+                    <td>${vent.getFechaVenta()}</td>
                     <td>${vent.getCliente()}</td>
                     <td>${vent.getApellidoEmpleado()}, ${vent.getNombreEmpleado()}</td>
-                    <td>${vent.getFechaVenta()}</td>
                     <td>${vent.getMonto()}</td>
+                    <td><a class="edit" href="../detalleVenta/listar-registrar.jsp?idVenta=${vent.getId()}"><p>Ver detalle</p></a></td>
+                    <td><a class="delete" href="/detalleVenta/listar-registrar.jsp?idVenta=${vent.getId()}"><p>Eliminar</p></a>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
     </div>
 </main>
+<%--VENTA NO PODRÁ SER EDITADA, SOLO ELIMINADA, DENTRO DE "VER DETALLE VENTA"
+PODRÁS AGREGAR DETALLES DE LA VENTA Y EN LA PARTE INFERIOR UNA TABLA CON LOS DETALLES DE VENTA DE ESA VENTA--%>
 </body>
 </html>

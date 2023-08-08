@@ -12,7 +12,7 @@ public class ProveedorDAO {
         List<proveedor> list = new ArrayList<proveedor>();
         try {
             Connection con = getConnection();
-            PreparedStatement ps = con.prepareStatement("SELECT id, razonSocial, representante, direccion, telefono FROM proveedor WHERE idEstado = 1");
+            PreparedStatement ps = con.prepareStatement("SELECT id, razonSocial, representante, direccion, telefono FROM proveedor WHERE idEstado = 1 ORDER BY razonSocial");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()){
