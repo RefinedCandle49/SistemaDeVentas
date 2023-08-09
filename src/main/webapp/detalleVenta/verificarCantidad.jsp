@@ -12,11 +12,7 @@
 <html>
 <head>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    <%
-        List<producto> miListaProducto = ProductoDAO.listar();
-        request.setAttribute("productoList", miListaProducto);
-        
-    %>
+
     
     <%
         String idVenta = request.getParameter("idVenta");

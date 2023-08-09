@@ -91,5 +91,28 @@ public class DetalleVentaDAO {
         return prod;
     }
 
+    public static List<producto> listarProductosConStock(){
+        List<producto> list = new ArrayList<producto>();
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT producto.id, nombreProducto, proveedor.razonSocial, categoria.nombreCategoria, precioUnitario, unidadesStock FROM producto INNER JOIN proveedor on proveedor.id = producto.idProveedor INNER JOIN categoria on producto.idCategoria = categoria.id WHERE producto.idEstado = 1 AND producto.unidadesStock > 0 ORDER BY nombreProducto ASC");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()){
+                producto prod = new producto();
+                prod.setId(rs.getInt("producto.id"));
+                prod.setNombreProducto(rs.getString("nombreProducto"));
+                prod.setRazonSocial(rs.getString("proveedor.razonSocial"));
+                prod.setNombreCategoria(rs.getString("categoria.nombreCategoria"));
+                prod.setPrecioUnitario(rs.getFloat("precioUnitario"));
+                prod.setUnidadesStock(rs.getInt("unidadesStock"));
+                list.add(prod);
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return list;
+    }
+
 
 }
