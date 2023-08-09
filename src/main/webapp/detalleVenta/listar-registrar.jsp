@@ -26,7 +26,6 @@
     <title>Agregar detalle venta</title>
 </head>
 <body>
-<%=idVenta%>
 <main>
     <a href="../venta/listar.jsp">Regresar</a>
     <form action="actualizarLista.jsp" method="post" target="miIframe2">

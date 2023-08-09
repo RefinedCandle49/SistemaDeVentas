@@ -32,12 +32,12 @@
 <main>
     <form action="verificarCantidad.jsp" method="post">
         
-        <label <%--style="display: none"--%>>
+        <label style="display: none">
             ID VENTA:
             <input type="text" name="idVenta" value="<%=idVenta%>">
         </label>
         
-        <label>
+        <label style="display: none">
             ID PRODUCTO:
             <input type="text" name="idProducto" value="<%=idProducto%>">
         </label>
