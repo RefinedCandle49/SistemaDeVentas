@@ -35,6 +35,19 @@ public class DetalleVentaDAO {
         return estado;
     }
 
+    public static int actualizarMonto(int idVenta){
+        int estado = 0;
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("UPDATE venta JOIN (SELECT idVenta, SUM(round((cantidad) * (producto.precioUnitario - detalleventa.descuento), 2)) precioProductos FROM detalleventa INNER JOIN producto on producto.id = detalleventa.idProducto GROUP BY idVenta) as subquery ON venta.id = subquery.idVenta SET venta.monto = subquery.precioProductos WHERE venta.id = ?");
+            ps.setInt(1, idVenta);
+            estado = ps.executeUpdate();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return estado;
+    }
+
     public static int actualizarStock(int unidadesStock, int idProducto, int cantidad){
         int stockActualizado = (unidadesStock - cantidad);
         int estado = 0;

@@ -66,9 +66,10 @@
             int idProductoActualizar = (Integer.parseInt(idProducto));
             String cantidad = request.getParameter("cantidad");
             int cantidadActualizar = (Integer.parseInt(cantidad));
+            int montoActualizar = (Integer.parseInt(idVenta));
             int o = DetalleVentaDAO.actualizarStock(prod.getUnidadesStock(), idProductoActualizar, cantidadActualizar);
-        
-        
+            int a = DetalleVentaDAO.actualizarMonto(montoActualizar);
+            
         
     } catch (Exception e) {
         System.out.println(e);
