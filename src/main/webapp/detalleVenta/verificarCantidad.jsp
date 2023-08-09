@@ -24,7 +24,8 @@
     %>
     
     <%
-        detalleVenta detVenta= DetalleVentaDAO.buscarStock(Integer.parseInt(idProducto));
+        producto prod= DetalleVentaDAO.buscarStock(Integer.parseInt(idProducto));
+        /*int cantidad = prod.getUnidadesStock();*/
     %>
     
     <jsp:useBean id="detalleVenta" class="modelo.detalleVenta"/>
@@ -47,7 +48,7 @@
         
         <label>
             Cantidad:
-            <input type="number" name="cantidad" min="0" max="<%=detVenta.getCantidad()%>"  placeholder="Stock: <%=detVenta.getCantidad()%>" required>
+            <input type="number" name="cantidad" min="0" max="<%=prod.getUnidadesStock()%>"  placeholder="Stock: <%=prod.getUnidadesStock()%>" required>
         </label>
         
         <label>
@@ -65,6 +66,13 @@
     try {
         /* Enviar datos a la tabla */
         int i = DetalleVentaDAO.registrar(detalleVenta);
+        
+            int idProductoActualizar = (Integer.parseInt(idProducto));
+            String cantidad = request.getParameter("cantidad");
+            int cantidadActualizar = (Integer.parseInt(cantidad));
+            int o = DetalleVentaDAO.actualizarStock(prod.getUnidadesStock(), idProductoActualizar, cantidadActualizar);
+        
+        
         
     } catch (Exception e) {
         System.out.println(e);

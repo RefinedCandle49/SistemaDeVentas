@@ -2,6 +2,7 @@ package dao;
 
 
 import modelo.detalleVenta;
+import modelo.producto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,6 +16,7 @@ public class DetalleVentaDAO {
 
     public static int registrar(detalleVenta detVenta){
         int estado = 0;
+
         try {
             Connection con = getConnection();
             PreparedStatement ps = con.prepareStatement("INSERT INTO detalleventa (idVenta, idProducto, cantidad, descuento) VALUES (?, ?, ?, ?)");
@@ -24,11 +26,31 @@ public class DetalleVentaDAO {
             ps.setInt(4, detVenta.getDescuento());
             estado = ps.executeUpdate();
 
+
+
+
         }catch (Exception e){
             System.out.println(e);
         }
         return estado;
     }
+
+    public static int actualizarStock(int unidadesStock, int idProducto, int cantidad){
+        int stockActualizado = (unidadesStock - cantidad);
+        int estado = 0;
+
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("UPDATE producto SET unidadesStock = ? WHERE id = ?");
+            ps.setInt(1, stockActualizado);
+            ps.setInt(2, idProducto);
+            estado = ps.executeUpdate();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return estado;
+    }
+
     public static List<detalleVenta> listar(int id) {
         List<detalleVenta> list = new ArrayList<detalleVenta>();
         try {
@@ -52,21 +74,21 @@ public class DetalleVentaDAO {
         return list;
     }
 
-    public static detalleVenta buscarStock(int idProducto) {
-        detalleVenta detventa = null;
+    public static producto buscarStock(int idProducto) {
+        producto prod = null;
         try {
             Connection con = getConnection();
             PreparedStatement ps = con.prepareStatement("SELECT unidadesStock FROM producto WHERE id = ?");
             ps.setInt(1, idProducto);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                detventa = new detalleVenta();
-                detventa.setCantidad(rs.getInt("unidadesStock"));
+                prod = new producto();
+                prod.setUnidadesStock(rs.getInt("unidadesStock"));
             }
         } catch (Exception e){
             System.out.println(e);
         }
-        return detventa;
+        return prod;
     }
 
 
