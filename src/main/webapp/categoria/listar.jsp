@@ -33,6 +33,8 @@
 <%--                    <td>${cat.getId()}</td>--%>
                     <td>${cat.getNombreCategoria()}</td>
                     <td>${cat.getDescripcion()}</td>
+                    <td><a href="editar.jsp?id=${cat.getId()}"><p>Editar</p></a></td>
+                    <td><a href="eliminar.jsp?id=${cat.getId()}"><p>Eliminar</p></a></td>
                 </tr>
             </c:forEach>
             </tbody>
