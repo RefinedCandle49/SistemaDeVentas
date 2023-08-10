@@ -41,6 +41,8 @@
                     <td>${prod.getNombreCategoria()}</td>
                     <td>${prod.getPrecioUnitario()}</td>
                     <td>${prod.getUnidadesStock()}</td>
+                    <td><a href="editar.jsp?id=${prod.getId()}"><p>Editar</p></a></td>
+                    <td><a href="eliminar.jsp?id=${prod.getId()}"><p>Eliminar</p></a></td>
                 </tr>
             </c:forEach>
             </tbody>

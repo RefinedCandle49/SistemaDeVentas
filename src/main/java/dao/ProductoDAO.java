@@ -50,4 +50,45 @@ public class ProductoDAO {
         return estado;
     }
 
+    public static producto buscarPorId(int id){
+        producto prod = null;
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT nombreProducto, idProveedor, idCategoria, precioUnitario, unidadesStock FROM producto WHERE id = ?");
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                prod = new producto();
+                prod.setNombreProducto(rs.getString("nombreProducto"));
+                prod.setIdProveedor(rs.getInt("idProveedor"));
+                prod.setIdCategoria(rs.getInt("idCategoria"));
+                prod.setPrecioUnitario(rs.getFloat("precioUnitario"));
+                prod.setUnidadesStock(rs.getInt("unidadesStock"));
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return prod;
+    }
+
+
+    public static int actualizar(producto prod){
+        int estado = 0;
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("UPDATE producto SET nombreProducto = ?, idProveedor = ?, idCategoria = ?, precioUnitario = ?, unidadesStock = ? WHERE id = ?");
+            ps.setString(1, prod.getNombreProducto());
+            ps.setInt(2, prod.getIdProveedor());
+            ps.setInt(3, prod.getIdCategoria());
+            ps.setFloat(4, prod.getPrecioUnitario());
+            ps.setInt(5, prod.getUnidadesStock());
+            ps.setInt(6, prod.getId());
+            estado = ps.executeUpdate();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return estado;
+    }
+
+
 }

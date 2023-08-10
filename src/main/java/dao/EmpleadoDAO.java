@@ -44,4 +44,41 @@ public class EmpleadoDAO {
         }
         return estado;
     }
+
+    public static empleado buscarPorId(int id){
+        empleado emp = null;
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT nombre, apellido, dni FROM empleado WHERE id = ?");
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                emp = new empleado();
+                emp.setNombre(rs.getString("nombre"));
+                emp.setApellido(rs.getString("apellido"));
+                emp.setDni(rs.getString("dni"));
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return emp;
+    }
+
+    public static int actualizar(empleado emp){
+        int estado = 0;
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("UPDATE empleado SET nombre = ?, apellido = ?, dni = ? WHERE id = ?");
+            ps.setString(1, emp.getNombre());
+            ps.setString(2, emp.getApellido());
+            ps.setString(3, emp.getDni());
+            ps.setInt(4, emp.getId());
+            estado = ps.executeUpdate();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return estado;
+    }
+
+
 }

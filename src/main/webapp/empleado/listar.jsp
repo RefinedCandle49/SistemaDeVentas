@@ -36,6 +36,8 @@
                     <td>${emp.getApellido()}</td>
                     <td>${emp.getNombre()}</td>
                     <td>${emp.getDni()}</td>
+                    <td><a href="editar.jsp?id=${emp.getId()}"><p>Editar</p></a></td>
+                    <td><a href="editar.jsp?id=${emp.getId()}"><p>Eliminar</p></a></td>
                 </tr>
             </c:forEach>
             </tbody>
