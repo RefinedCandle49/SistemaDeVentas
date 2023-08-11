@@ -34,10 +34,12 @@
       <c:forEach var="prov" items="${list}">
         <tr>
 <%--          <td>${prov.getId()}</td>--%>
-          <td>${prov.getRazonSocial()}</td>
-          <td>${prov.getRepresentante()}</td>
-          <td>${prov.getDireccion()}</td>
-          <td>${prov.getTelefono()}</td>
+            <td>${prov.getRazonSocial()}</td>
+            <td>${prov.getRepresentante()}</td>
+            <td>${prov.getDireccion()}</td>
+            <td>${prov.getTelefono()}</td>
+            <td><a href="editar.jsp?id=${prov.getId()}"><p>Editar</p></a></td>
+            <td><a href="eliminar.jsp?id=${prov.getId()}"><p>Eliminar</p></a></td>
         </tr>
       </c:forEach>
       </tbody>

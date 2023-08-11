@@ -47,4 +47,43 @@ public class ProveedorDAO {
         }
         return estado;
     }
+
+    public static proveedor buscarPorId(int id){
+        proveedor prov = null;
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT razonSocial, representante, direccion, telefono FROM proveedor WHERE id = ?");
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                prov = new proveedor();
+                prov.setRazonSocial(rs.getString("razonSocial"));
+                prov.setRepresentante(rs.getString("representante"));
+                prov.setDireccion(rs.getString("direccion"));
+                prov.setTelefono(rs.getString("telefono"));
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return prov;
+    }
+
+    public static int actualizar(proveedor prov){
+        int estado = 0;
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("UPDATE proveedor SET razonSocial = ?, representante = ?, direccion = ?, telefono = ? WHERE id = ?");
+            ps.setString(1, prov.getRazonSocial());
+            ps.setString(2, prov.getRepresentante());
+            ps.setString(3, prov.getDireccion());
+            ps.setString(4, prov.getTelefono());
+            ps.setInt(5, prov.getId());
+            estado = ps.executeUpdate();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return estado;
+    }
+
+
 }
