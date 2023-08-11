@@ -54,13 +54,15 @@ public class ProductoDAO {
         producto prod = null;
         try {
             Connection con = getConnection();
-            PreparedStatement ps = con.prepareStatement("SELECT nombreProducto, idProveedor, idCategoria, precioUnitario, unidadesStock FROM producto WHERE id = ?");
+            PreparedStatement ps = con.prepareStatement("SELECT nombreProducto, idProveedor, proveedor.razonSocial, idCategoria, categoria.nombreCategoria, precioUnitario, unidadesStock FROM producto INNER JOIN proveedor on proveedor.id = producto.idProveedor INNER JOIN categoria on producto.idCategoria = categoria.id WHERE producto.id = ?");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
                 prod = new producto();
                 prod.setNombreProducto(rs.getString("nombreProducto"));
                 prod.setIdProveedor(rs.getInt("idProveedor"));
+                prod.setRazonSocial(rs.getString("proveedor.razonSocial"));
+                prod.setNombreCategoria(rs.getString("categoria.nombreCategoria"));
                 prod.setIdCategoria(rs.getInt("idCategoria"));
                 prod.setPrecioUnitario(rs.getFloat("precioUnitario"));
                 prod.setUnidadesStock(rs.getInt("unidadesStock"));
