@@ -13,6 +13,7 @@
     <%@ page import="modelo.empleado" %>
     <jsp:useBean id="empActualizar" class="modelo.empleado"/>
     <jsp:setProperty property="*" name="empActualizar"/>
+    <link rel="stylesheet" href="../estilos/main.css">
     <title>Editar empleado</title>
     <%
         String id = request.getParameter("id");
@@ -22,30 +23,41 @@
 </head>
 <body>
 <main>
-    <form action="registrar.jsp" method="post">
-        <label>
+    <form action="editar.jsp" method="post">
+        <label style="display: none">
             Id:
-            <input type="text" name="id" value="">
+            <input type="text" name="id" value="<%=idEmpleado%>">
         </label>
         
         <label>
             Nombre:
-            <input type="text" name="nombre" placeholder="" value="<%=emp.getNombre()%>">
+            <input type="text" name="nombre" value="<%=emp.getNombre()%>" placeholder="">
         </label>
         
         <label>
             Apellido:
-            <input type="text" name="apellido" placeholder="">
+            <input type="text" name="apellido" value="<%=emp.getApellido()%>" placeholder="">
         </label>
         
         <label>
             DNI:
-            <input type="text" name="dni" placeholder="">
+            <input type="text" name="dni" value="<%=emp.getDni()%>" placeholder="">
         </label>
         
-        <input type="submit" value="Registrar">
+        <input type="submit" value="Guardar">
     </form>
     <a href="listar.jsp">Regresar</a>
 </main>
+<%
+    try {
+        /* Enviar datos a la tabla */
+        int i = EmpleadoDAO.actualizar(empActualizar);
+        if (i > 0){
+            response.sendRedirect("listar.jsp");
+        }
+    } catch (Exception e) {
+        System.out.println(e);
+    }
+%>
 </body>
 </html>

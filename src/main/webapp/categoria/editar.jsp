@@ -35,7 +35,7 @@
             <input type="text" name="descripcion" value="<%=cat.getDescripcion()%>" pattern="[^áéíóúÁÉÍÓÚ]+" title="No se permiten tildes">
         </label>
         
-        <input type="submit" value="Registrar">
+        <input type="submit" value="Guardar">
     </form>
     <a href="listar.jsp">Regresar</a>
 </main>

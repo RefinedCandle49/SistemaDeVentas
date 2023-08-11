@@ -8,9 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ page import="dao.ProveedorDAO, dao.CategoriaDAO, dao.ProductoDAO" %>
     <%@page import="conexion.*, java.util.*" %>
-    <%@ page import="dao.ProductoDAO" %>
-    <%@ page import="modelo.producto" %>
+    <%@ page import="modelo.categoria, modelo.producto, modelo.proveedor" %>
     <jsp:useBean id="prodActualizar" class="modelo.producto"/>
     <jsp:setProperty property="*" name="prodActualizar"/>
     <title>Editar producto</title>
@@ -18,21 +19,72 @@
         String id = request.getParameter("id");
         int idProducto = Integer.parseInt(id);
         producto prod = ProductoDAO.buscarPorId(idProducto);
+        
+        List<proveedor> miListaProveedor = ProveedorDAO.listar();
+        request.setAttribute("proveedorList", miListaProveedor);
+        
+        List<categoria> miListaCategoria = CategoriaDAO.listar();
+        request.setAttribute("categoriaList", miListaCategoria);
+        
     %>
 </head>
 <body>
 <main>
-    <form action="registrar.jsp" method="post">
-        <label>
+    <form action="editar.jsp" method="post">
+        <label style="display:none;">
             Id:
-            <input type="text" name="id" value="">
+            <input type="text" name="id" value="<%=idProducto%>">
         </label>
         
         <label>
             Nombre:
-            <input type="text" name="nombre" placeholder="" value="<%=prod.getNombreProducto()%>">
+            <input type="text" name="nombreProducto" placeholder="" value="<%=prod.getNombreProducto()%>">
         </label>
+
+        <label>
+            Proveedor:
+            <select name="idProveedor" required>
+                <option value="<%=prod.getIdProveedor()%>" selected style="display:none;"><%=prod.getRazonSocial()%></option>
+                <c:forEach var="prov" items="${proveedorList}">
+                    <option value="${prov.getId()}">${prov.getRazonSocial()}</option>
+                </c:forEach>
+            </select>
+        </label>
+        
+        <label>
+            Categoría:
+            <select name="idCategoria" required>
+                <option value="<%=prod.getIdCategoria()%>" selected style="display:none;"><%=prod.getNombreCategoria()%></option>
+                <c:forEach var="cat" items="${categoriaList}">
+                    <option value="${cat.getId()}">${cat.getNombreCategoria()}</option>
+                </c:forEach>
+            </select>
+        </label>
+        
+        <label>
+            Precio Unitario:
+            <input type="number" name="precioUnitario" step=".01" min="0.00" value="<%=prod.getPrecioUnitario()%>">
+        </label>
+        
+        <label>
+            Stock:
+            <input type="number" name="unidadesStock" min="0" value="<%=prod.getUnidadesStock()%>">
+        </label>
+        
+        <input type="submit" value="Guardar">
     </form>
+    <a href="listar.jsp">Regresar</a>
 </main>
+<%
+    try {
+        /* Enviar datos a la tabla */
+        int i = ProductoDAO.actualizar(prodActualizar);
+        if (i > 0){
+            response.sendRedirect("listar.jsp");
+        }
+    } catch (Exception e) {
+        System.out.println(e);
+    }
+%>
 </body>
 </html>
