@@ -29,7 +29,7 @@
     }
 %>--%>
 <main>
-    <form action="registrar.jsp" method="post">
+    <form action="registrar.jsp" method="post" target="myframe">
         <label>
             Cliente:
             <input type="text" name="cliente" required>
@@ -45,6 +45,7 @@
             </select>
         </label>
        <%-- <input type="datetime-local" value="<%=obtenerFechaActual()%>" disabled>--%>
+        <iframe name="myframe"></iframe>
         <input type="submit" value="Registrar">
     </form>
     <a href="listar.jsp">Regresar</a>
