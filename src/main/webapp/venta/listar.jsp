@@ -39,7 +39,7 @@
                     <td>${vent.getApellidoEmpleado()}, ${vent.getNombreEmpleado()}</td>
                     <td>${vent.getMonto()}</td>
                     <td><a class="edit" href="../detalleVenta/listar-registrar.jsp?idVenta=${vent.getId()}"><p>Ver detalle</p></a></td>
-                    <td><a class="delete" href="eliminar.jsp?id=${vent.getId()}"><p>Eliminar</p></a>
+                    <td><a class="delete" href="eliminar.jsp?id=${vent.getId()}"><p>Cancelar</p></a>
                 </tr>
             </c:forEach>
             </tbody>
