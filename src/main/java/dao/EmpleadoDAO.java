@@ -80,5 +80,17 @@ public class EmpleadoDAO {
         return estado;
     }
 
+    public static int desactivarEmpleado(int id){
+        int estado = 0;
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("UPDATE empleado SET idEstado = 2 WHERE id = ?");
+            ps.setInt(1, id);
+            estado = ps.executeUpdate();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return estado;
+    }
 
 }

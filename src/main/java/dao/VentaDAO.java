@@ -76,4 +76,17 @@ public class VentaDAO {
         return vent;
     }
 
+    public static int desactivarVenta(int id){
+        int estado = 0;
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("DELETE FROM venta WHERE id = ?");
+            ps.setInt(1, id);
+            estado = ps.executeUpdate();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return estado;
+    }
+
 }
