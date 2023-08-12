@@ -1,4 +1,5 @@
 <%@ page import="modelo.empleado,conexion.*, dao.EmpleadoDAO, dao.VentaDAO, java.util.*" %>
+<%@ page import="modelo.venta" %>
 <%--
   Created by IntelliJ IDEA.
   User: valde
@@ -52,6 +53,12 @@
     try {
         /* Enviar datos a la tabla */
         int i = VentaDAO.registrar(venta);
+        if (i > 0){
+            int mayorId = VentaDAO.ultimoID();
+            
+            response.sendRedirect("../detalleVenta/listar-registrar.jsp?idVenta=" + VentaDAO.ultimoID());
+//            http://localhost:8080/SistemaDeVentas-1.0-SNAPSHOT/detalleVenta/listar-registrar.jsp?idVenta=1
+        }
     } catch (Exception e) {
         System.out.println(e);
     }

@@ -48,6 +48,45 @@ public class VentaDAO {
         }
         return estado;
     }
+
+    public static int ultimoID(){
+        int mayorId = 1;
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT MAX(id) FROM venta");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()){
+                mayorId = rs.getInt("MAX(id)");
+            }
+            
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return mayorId;
+    }
+
+/*    public static venta buscarPorId(int id) {
+        venta vent = null;
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT venta.id, cliente, idEmpleado, empleado.nombre, fechaVenta, monto FROM venta INNER JOIN empleado on empleado.id = venta.idEmpleado WHERE venta.id = ?");
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                vent = new venta();
+                vent.setId(rs.getInt("venta.id"));
+                vent.setCliente(rs.getString("cliente"));
+                vent.setIdEmpleado(Integer.parseInt(rs.getString("idEmpleado")));
+                vent.setNombreEmpleado("empleado.nombre");
+                vent.setFechaVenta(rs.getString("fechaVenta"));
+                vent.setMonto(Float.parseFloat(rs.getString("monto")));
+            }
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        return vent;
+    }*/
     public static String obtenerFechaActual() {
         java.util.Date fecha = new java.util.Date();
         java.text.SimpleDateFormat formato = new java.text.SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss");

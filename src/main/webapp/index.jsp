@@ -2,8 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JSP - Hello World</title>
+    <title>JSP - Hello World</title>
 </head>
 <body>
+<form action="venta/listar.jsp" target="frame">
+    <iframe name="frame"></iframe>
+    <input type="submit" value="enviar" >
+</form>
 </body>
 </html>
