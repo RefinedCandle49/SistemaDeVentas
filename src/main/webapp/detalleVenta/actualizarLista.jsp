@@ -32,6 +32,7 @@
         <th>Nombre</th>
         <th>Cantidad</th>
         <th>Descuento</th>
+        <th>Total</th>
     </tr>
     </thead>
     <tbody>
@@ -41,6 +42,7 @@
             <td>${detVenta.getNombreProducto()}</td>
             <td>${detVenta.getCantidad()}</td>
             <td>${detVenta.getDescuento()}</td>
+            <td>${detVenta.getTotal()}</td>
         </tr>
     </c:forEach>
     </tbody>

@@ -57,4 +57,25 @@ public class detalleVenta {
     int idProducto;
     int cantidad;
     int descuento;
+
+    public float getPrecioUnitario() {
+        return precioUnitario;
+    }
+
+    public void setPrecioUnitario(float precioUnitario) {
+        this.precioUnitario = precioUnitario;
+    }
+
+    float precioUnitario;
+
+
+    public float getTotal() {
+        return total;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
+    }
+
+    float total;
 }
