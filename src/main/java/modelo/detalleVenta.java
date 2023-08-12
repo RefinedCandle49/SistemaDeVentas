@@ -69,13 +69,13 @@ public class detalleVenta {
     float precioUnitario;
 
 
-    public float getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(float total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 
-    float total;
+    double total;
 }

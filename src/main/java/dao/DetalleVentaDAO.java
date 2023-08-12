@@ -67,20 +67,23 @@ public class DetalleVentaDAO {
 
     public static List<detalleVenta> listar(int id) {
         List<detalleVenta> list = new ArrayList<detalleVenta>();
-        float test;
         try {
             Connection con = getConnection();
-            PreparedStatement ps = con.prepareStatement("SELECT producto.nombreProducto, producto.precioUnitario, cantidad, descuento FROM detalleventa INNER JOIN venta ON detalleventa.idVenta = venta.id INNER JOIN producto ON detalleventa.idProducto = producto.id WHERE venta.id = ?");
+            PreparedStatement ps = con.prepareStatement("SELECT producto.id, producto.nombreProducto, producto.precioUnitario, cantidad, descuento FROM detalleventa INNER JOIN venta ON detalleventa.idVenta = venta.id INNER JOIN producto ON detalleventa.idProducto = producto.id WHERE venta.id = ?");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()){
                 detalleVenta detVenta = new detalleVenta();
+                detVenta.setIdProducto(rs.getInt("producto.id"));
                 detVenta.setNombreProducto(rs.getString("producto.nombreProducto"));
                 detVenta.setPrecioUnitario(rs.getFloat("producto.precioUnitario"));
                 detVenta.setCantidad(rs.getInt("cantidad"));
                 detVenta.setDescuento(Integer.parseInt(rs.getString("descuento")));
-                detVenta.setTotal(detVenta.getPrecioUnitario() * detVenta.getCantidad());
+
+                DecimalFormat df = new DecimalFormat("#.##");
+                detVenta.setTotal(Double.parseDouble(df.format(detVenta.getPrecioUnitario() * detVenta.getCantidad())));
+
                 list.add(detVenta);
             }
 
