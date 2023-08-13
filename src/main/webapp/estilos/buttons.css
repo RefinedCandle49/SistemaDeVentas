@@ -1,0 +1,30 @@
+.registerButton{
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    margin: 10px 15px 30px 0;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.categoryRegisterButton{
+    background-color: #613C97;
+}
+
+.employeeRegisterButton{
+    background-color: #975E3C;
+}
+
+.supplierRegisterButton{
+    background-color: #A43838;
+}
+
+.productRegisterButton{
+    background-color: #A4388E;
+}
+
+.saleRegisterButton{
+    background-color: #3C6997;
+}

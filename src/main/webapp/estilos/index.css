@@ -1,4 +1,7 @@
-
+.mainWindow{
+    display: flex;
+    height: 100vh;
+}
 
 .generalFrame{
     width: 100%;
@@ -21,6 +24,5 @@
 ul{
     list-style-type: none;
 }
-
 
 

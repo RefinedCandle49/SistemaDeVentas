@@ -23,6 +23,7 @@
     <jsp:useBean id="detalleVenta" class="modelo.detalleVenta"/>
     <jsp:setProperty property="*" name="detalleVenta"/>
     <link rel="stylesheet" href="../estilos/general.css">
+    <link rel="stylesheet" href="../estilos/tables.css">
     <title>Agregar Detalle Venta</title>
 </head>
 <body>

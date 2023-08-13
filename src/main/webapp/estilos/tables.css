@@ -1,0 +1,47 @@
+thead{
+    color: white;
+}
+/*CATEGORY UNIQUE STYLE*/
+.categoryTableHead{
+    background-color: #613C97;
+}
+
+.categoryTableBody > tr:nth-child(even){
+    background-color: #1D006F14;
+}
+
+/*EMPLOYEES UNIQUE STYLES*/
+.employeeTableHead{
+    background-color: #975E3C;
+}
+
+.employeeTableBody > tr:nth-child(even){
+    background-color: #6F1F0014;
+}
+
+/*SUPPLIER UNIQUE STYLES*/
+.supplierTableHead{
+    background-color: #A43838;
+}
+
+.supplierTableBody > tr:nth-child(even){
+    background-color: #6F000014;
+}
+
+/*PRODUCT UNIQUE STYLES*/
+.productTableHead{
+    background-color: #A4388E;
+}
+
+.productTableBody > tr:nth-child(even){
+    background-color: #57006F14;
+}/*3C6997*/
+
+/*SALE UNIQUE STYLES*/
+.saleTableHead{
+    background-color: #3C6997;
+}
+
+.saleTableBody > tr:nth-child(even){
+    background-color: #002B6F14;
+}
