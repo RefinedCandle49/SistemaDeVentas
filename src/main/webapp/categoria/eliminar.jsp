@@ -9,6 +9,7 @@
 <html>
 <head>
     <%@ page import="modelo.categoria, dao.CategoriaDAO, conexion.*" %>
+    <link rel="stylesheet" href="../estilos/general.css">
     <title>Eliminar</title>
     <%
         String id = request.getParameter("id");

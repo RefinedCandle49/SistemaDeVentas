@@ -11,6 +11,7 @@
     <%@page import="modelo.proveedor, conexion.*, dao.ProveedorDAO, java.util.*" %>
     <jsp:useBean id="provActualizar" class="modelo.proveedor"/>
     <jsp:setProperty property="*" name="provActualizar"/>
+    <link rel="stylesheet" href="../estilos/general.css">
     <title>Editar proveedor</title>
     <%
         String id = request.getParameter("id");
@@ -21,7 +22,7 @@
 <body>
 <main>
     <form action="editar.jsp" method="post">
-        <label>
+        <label class="invisible">
             ID:
             <input type="text" name="id" value="<%=idProveedor%>">
         </label>

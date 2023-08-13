@@ -13,6 +13,7 @@
 <html>
 <head>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <link rel="stylesheet" href="../estilos/general.css">
     <title>Registrar venta</title>
 </head>
 <body>
@@ -38,7 +39,7 @@
         <label>
             Empleado:
             <select name="idEmpleado" required>
-                <option value="" disabled selected style="display:none;">Seleccionar opción</option>
+                <option value="" disabled selected class="invisible">Seleccionar opción</option>
                 <c:forEach var="emp" items="${list}">
                     <option value="${emp.getId()}">${emp.getApellido()}, ${emp.getNombre()}</option>
                 </c:forEach>
@@ -58,7 +59,6 @@
             int mayorId = VentaDAO.ultimoID();
             
             response.sendRedirect("../detalleVenta/listar-registrar.jsp?idVenta=" + VentaDAO.ultimoID());
-//            http://localhost:8080/SistemaDeVentas-1.0-SNAPSHOT/detalleVenta/listar-registrar.jsp?idVenta=1
         }
     } catch (Exception e) {
         System.out.println(e);

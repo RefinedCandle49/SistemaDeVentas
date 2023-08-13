@@ -13,7 +13,7 @@
     <%@ page import="modelo.empleado" %>
     <jsp:useBean id="empActualizar" class="modelo.empleado"/>
     <jsp:setProperty property="*" name="empActualizar"/>
-    <link rel="stylesheet" href="../estilos/main.css">
+    <link rel="stylesheet" href="../estilos/general.css">
     <title>Editar empleado</title>
     <%
         String id = request.getParameter("id");
@@ -24,7 +24,7 @@
 <body>
 <main>
     <form action="editar.jsp" method="post">
-        <label style="display: none">
+        <label class="invisible">
             Id:
             <input type="text" name="id" value="<%=idEmpleado%>">
         </label>

@@ -15,6 +15,7 @@
 <html>
 <head>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <link rel="stylesheet" href="../estilos/general.css">
     <title>Registrar producto</title>
 </head>
 <body>
@@ -35,7 +36,7 @@
         <label>
             Proveedor:
             <select name="idProveedor" required>
-                <option value="" disabled selected style="display:none;">Seleccionar opción</option>
+                <option value="" disabled selected class="invisible">Seleccionar opción</option>
                 <c:forEach var="prov" items="${proveedorList}">
                     <option value="${prov.getId()}">${prov.getRazonSocial()}</option>
                 </c:forEach>
@@ -45,7 +46,7 @@
         <label>
             Categoría:
             <select name="idCategoria" required>
-                <option value="" disabled selected style="display:none;">Seleccionar opción</option>
+                <option value="" disabled selected class="invisible">Seleccionar opción</option>
                 <c:forEach var="cat" items="${categoriaList}">
                     <option value="${cat.getId()}">${cat.getNombreCategoria()}</option>
                 </c:forEach>

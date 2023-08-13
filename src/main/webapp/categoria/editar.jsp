@@ -11,6 +11,7 @@
     <%@page import="modelo.categoria, conexion.*, dao.CategoriaDAO, java.util.*" %>
     <jsp:useBean id="catActualizar" class="modelo.categoria"/>
     <jsp:setProperty property="*" name="catActualizar"/>
+    <link rel="stylesheet" href="../estilos/general.css">
     <title>Editar categoría</title>
     <%
         String id = request.getParameter("id");
@@ -21,7 +22,7 @@
 <body>
 <main>
     <form action="editar.jsp" method="post">
-        <label>
+        <label class="invisible">
             Id:
             <input type="text" name="id" value="<%=idCategoria%>">
         </label>

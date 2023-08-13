@@ -12,6 +12,7 @@
 <html>
 <head>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <link rel="stylesheet" href="../estilos/general.css">
     <title>Registrar categoría</title>
 </head>
 <body>

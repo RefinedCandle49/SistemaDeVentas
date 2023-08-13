@@ -9,8 +9,7 @@
 <html>
 <head>
     <%@ page import="modelo.proveedor, dao.ProveedorDAO, conexion.*" %>
-    <%--    <jsp:useBean id="prodDesactivar" class="modelo.producto"/>
-        <jsp:setProperty property="idEstado" name="prodDesactivar"/>--%>
+    <link rel="stylesheet" href="../estilos/general.css">
     <title>Eliminar</title>
     <%
         String id = request.getParameter("id");

@@ -14,6 +14,7 @@
     <%@ page import="modelo.categoria, modelo.producto, modelo.proveedor" %>
     <jsp:useBean id="prodActualizar" class="modelo.producto"/>
     <jsp:setProperty property="*" name="prodActualizar"/>
+    <link rel="stylesheet" href="../estilos/general.css">
     <title>Editar producto</title>
     <%
         String id = request.getParameter("id");
@@ -31,7 +32,7 @@
 <body>
 <main>
     <form action="editar.jsp" method="post">
-        <label style="display:none;">
+        <label class="invisible">
             Id:
             <input type="text" name="id" value="<%=idProducto%>">
         </label>
@@ -44,7 +45,7 @@
         <label>
             Proveedor:
             <select name="idProveedor" required>
-                <option value="<%=prod.getIdProveedor()%>" selected style="display:none;"><%=prod.getRazonSocial()%></option>
+                <option value="<%=prod.getIdProveedor()%>" selected class="invisible"><%=prod.getRazonSocial()%></option>
                 <c:forEach var="prov" items="${proveedorList}">
                     <option value="${prov.getId()}">${prov.getRazonSocial()}</option>
                 </c:forEach>
@@ -54,7 +55,7 @@
         <label>
             Categoría:
             <select name="idCategoria" required>
-                <option value="<%=prod.getIdCategoria()%>" selected style="display:none;"><%=prod.getNombreCategoria()%></option>
+                <option value="<%=prod.getIdCategoria()%>" selected class="invisible"><%=prod.getNombreCategoria()%></option>
                 <c:forEach var="cat" items="${categoriaList}">
                     <option value="${cat.getId()}">${cat.getNombreCategoria()}</option>
                 </c:forEach>

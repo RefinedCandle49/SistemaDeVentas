@@ -26,18 +26,19 @@
     
     <jsp:useBean id="detalleVenta" class="modelo.detalleVenta"/>
     <jsp:setProperty property="*" name="detalleVenta"/>
+    <link rel="stylesheet" href="../estilos/general.css">
     <title>Agregar detalle venta</title>
 </head>
 <body>
 <main>
     <form action="verificarCantidad.jsp" method="post">
         
-        <label style="display: none">
+        <label class="invisible">
             ID VENTA:
             <input type="text" name="idVenta" value="<%=idVenta%>">
         </label>
         
-        <label style="display: none">
+        <label class="invisible">
             ID PRODUCTO:
             <input type="text" name="idProducto" value="<%=idProducto%>">
         </label>
@@ -58,7 +59,6 @@
 </main>
 
 <%
-    //    if ((request.getParameter("nombre")!= null) && (request.getParameter("empresa")!= null) && (request.getParameter("web")!= null) && (request.getParameter("cargo")!= null) && (request.getParameter("email")!= null) && (request.getParameter("telefono")!= null) && (request.getParameter("leads")!= null)){
     try {
         /* Enviar datos a la tabla */
         int i = DetalleVentaDAO.registrar(detalleVenta);
@@ -67,9 +67,9 @@
             String cantidad = request.getParameter("cantidad");
             int cantidadActualizar = (Integer.parseInt(cantidad));
             int montoActualizar = (Integer.parseInt(idVenta));
-            int o = DetalleVentaDAO.actualizarStock(prod.getUnidadesStock(), idProductoActualizar, cantidadActualizar);
-            int a = DetalleVentaDAO.actualizarMonto(montoActualizar);
-            
+            DetalleVentaDAO.actualizarStock(prod.getUnidadesStock(), idProductoActualizar, cantidadActualizar);
+            DetalleVentaDAO.actualizarMonto(montoActualizar);
+        response.sendRedirect("refresh.jsp");
         
     } catch (Exception e) {
         System.out.println(e);
