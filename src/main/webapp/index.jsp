@@ -9,6 +9,7 @@
 <body class="mainWindow">
 <header class="sidebar">
     <nav>
+        <h1>Panel administrativo</h1>
         <ul>
             <li><a class="sidebarLink" href="categoria/listar.jsp" target="miIframe">Categoría</a></li>
             <li><a class="sidebarLink" href="empleado/listar.jsp" target="miIframe">Empleado</a></li>

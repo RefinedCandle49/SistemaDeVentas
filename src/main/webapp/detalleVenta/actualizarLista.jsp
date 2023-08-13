@@ -26,31 +26,35 @@
     <title>Agregar Detalle Venta</title>
 </head>
 <body>
-<table>
-    <thead>
-    <tr>
-        <%--                <th>ID</th>--%>
-        <th>SKU</th>
-        <th>Nombre</th>
-        <th>Cantidad</th>
-        <th>Precio Unitario</th>
-        <th>Descuento Unitario</th>
-        <th>Total</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="detVenta" items="${detalleVentaList}">
-        <tr>
-                <%--                    <td>${vent.getId()}</td>--%>
-            <td>${detVenta.getIdProducto()}</td>
-            <td>${detVenta.getNombreProducto()}</td>
-            <td>${detVenta.getCantidad()}</td>
-            <td>${detVenta.getPrecioUnitario()}</td>
-            <td>${detVenta.getDescuento()}</td>
-            <td>${detVenta.getTotal()}</td>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
+<main>
+    <div class="tableContainer">
+        <table>
+            <thead>
+            <tr>
+                <%--                <th>ID</th>--%>
+                <th>SKU</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Descuento Unitario</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="detVenta" items="${detalleVentaList}">
+                <tr>
+                        <%--                    <td>${vent.getId()}</td>--%>
+                    <td>${detVenta.getIdProducto()}</td>
+                    <td>${detVenta.getNombreProducto()}</td>
+                    <td>${detVenta.getCantidad()}</td>
+                    <td>S/. ${detVenta.getPrecioUnitario()}</td>
+                    <td>S/. ${detVenta.getDescuento()}</td>
+                    <td>S/. ${detVenta.getTotal()}</td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+</main>
 </body>
 </html>
