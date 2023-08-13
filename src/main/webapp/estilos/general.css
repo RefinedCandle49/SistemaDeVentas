@@ -72,21 +72,3 @@ th{
     border: none;
     border-radius: 5px;
 }
-
-/*
-a, li{
-    text-decoration: none;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    font-size: 16px;
-}
-
-td, th {
-    border: 1px solid #bdb9b9;
-    text-align: left;
-    padding: 8px;
-}

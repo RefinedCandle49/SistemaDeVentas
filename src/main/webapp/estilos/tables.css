@@ -10,6 +10,10 @@ thead{
     background-color: #1D006F14;
 }
 
+.categoryTableBody > tr:nth-child(2n+1){
+    background-color: #ffffff47;
+}
+
 /*EMPLOYEES UNIQUE STYLES*/
 .employeeTableHead{
     background-color: #975E3C;
@@ -17,6 +21,10 @@ thead{
 
 .employeeTableBody > tr:nth-child(even){
     background-color: #6F1F0014;
+}
+
+.employeeTableBody > tr:nth-child(2n+1){
+    background-color: #ffffff47;
 }
 
 /*SUPPLIER UNIQUE STYLES*/
@@ -28,6 +36,10 @@ thead{
     background-color: #6F000014;
 }
 
+.supplierTableBody > tr:nth-child(2n+1){
+    background-color: #ffffff47;
+}
+
 /*PRODUCT UNIQUE STYLES*/
 .productTableHead{
     background-color: #A4388E;
@@ -35,7 +47,11 @@ thead{
 
 .productTableBody > tr:nth-child(even){
     background-color: #57006F14;
-}/*3C6997*/
+}
+
+.productTableBody > tr:nth-child(2n+1){
+    background-color: #ffffff47;
+}
 
 /*SALE UNIQUE STYLES*/
 .saleTableHead{
@@ -44,4 +60,8 @@ thead{
 
 .saleTableBody > tr:nth-child(even){
     background-color: #002B6F14;
+}
+
+.saleTableBody > tr:nth-child(2n+1){
+    background-color: #ffffff47;
 }

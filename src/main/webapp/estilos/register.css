@@ -1,0 +1,63 @@
+/*
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+ */
+
+.registerContainer{
+    display: grid;
+    place-content: center;
+}
+
+/* Estilo para el formulario */
+form {
+    box-shadow: 0 0 20px 16px rgba(0, 0, 0, 0.1); /* Agrega una sombra alrededor del formulario */
+    border-radius: 10px; /* Hace que los bordes sean redondeados */
+    padding: 20px; /* Añade un espacio interno al formulario */
+    background-color: white;
+    height: 85vh;
+    width: 60vh;
+    font-size: 20px;
+    display: grid;
+    place-content: center;
+    gap: 10px;
+}
+
+/* Estilo para los campos de entrada */
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    border: 1px solid #ccc; /* Agrega un borde a los campos de entrada */
+    border-radius: 5px; /* Hace que los bordes de los campos de entrada sean redondeados */
+    padding: 10px; /* Añade un espacio interno a los campos de entrada */
+    width: 100%;
+}
+
+/* Estilo para el botón de envío */
+form input[type="submit"] {
+    background-color: #A4388E;
+    color: #fff; /* Cambia el color del texto del botón */
+    border: none; /* Quita el borde del botón */
+    border-radius: 5px; /* Hace que los bordes del botón sean redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+label > input, textarea{
+    font-size: 20px;
+}
+
+label{
+    display: contents;
+}
+
+textarea{
+    resize: none;
+}
