@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="estilos/index.css">
     <title>JSP - Hello World</title>
 </head>
-<body>
+<body class="mainWindow">
 <header class="sidebar">
     <nav>
         <ul>
