@@ -18,14 +18,6 @@ body{
     font-family: Inter, sans-serif;
 }
 
-
-.sidebar {
-    position: sticky;
-    top: 0;
-    min-width: 200px;
-    padding-left: 10px;
-}
-
 a{text-decoration: none; color: gray}
 
 table {
@@ -45,17 +37,26 @@ thead{
     color: white;
 }
 
+.tableHeader{
+    text-align: center;
+}
+
 .tableButtons{
     text-align: center;
 }
 
 td{
     color: gray;
-    padding: 12px;
+    padding: 12px 50px;
 }
 
 tr{
-    height: 45px;
+    height: 60px;
+}
+
+th{
+    padding: 0 50px;
+    text-align: left;
 }
 
 tr:nth-child(even) {

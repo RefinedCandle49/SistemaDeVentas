@@ -26,7 +26,7 @@
 <%--                <th>ID</th>--%>
                 <th>Categoría:</th>
                 <th>Descripción</th>
-                <th colspan="2">Acciones</th>
+                <th class="tableHeader" colspan="2">Acciones</th>
             </tr>
             </thead>
             <tbody>
