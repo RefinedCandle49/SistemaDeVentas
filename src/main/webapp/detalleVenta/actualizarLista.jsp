@@ -31,6 +31,10 @@
 </head>
 <body>
 <main>
+    <a class="saleRegisterButton registerButton" href="listar.jsp">
+        <i class="fa-solid fa-rotate-left fa-xl" style="color: #ffffff;"></i>
+        Regresar
+    </a>
     <div class="tableContainer">
         <table>
             <thead class="saleTableHead">
