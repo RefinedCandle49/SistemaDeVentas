@@ -25,6 +25,10 @@
     gap: 20px;
 }
 
+select, input{
+    font-size: 20px;
+}
+
 .table {
     grid-area: table;
     border-radius: 10px;
@@ -67,7 +71,7 @@ form input[type="submit"] {
 }
 
 .verificarCantidad{
-    height: 30vh;
+    height: 35.7vh;
     width: 100%;
 }
 
