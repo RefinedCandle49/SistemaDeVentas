@@ -62,6 +62,7 @@ label > input, textarea{
 
 .categoryForm > label > input, .categoryForm > label > textarea{
     background-color: #1D006F14;
+    font-family: Inter, sans-serif;
 }
 
 .employeeForm > label > input, .employeeForm > label > textarea{

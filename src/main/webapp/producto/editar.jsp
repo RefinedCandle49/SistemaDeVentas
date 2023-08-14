@@ -15,6 +15,9 @@
     <jsp:useBean id="prodActualizar" class="modelo.producto"/>
     <jsp:setProperty property="*" name="prodActualizar"/>
     <link rel="stylesheet" href="../estilos/general.css">
+    <link rel="stylesheet" href="../estilos/register.css">
+    <link rel="stylesheet" href="../estilos/buttons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Editar producto</title>
     <%
         String id = request.getParameter("id");
@@ -31,50 +34,56 @@
 </head>
 <body>
 <main>
-    <form action="editar.jsp" method="post">
-        <label class="invisible">
-            Id:
-            <input type="text" name="id" value="<%=idProducto%>">
-        </label>
-        
-        <label>
-            Nombre:
-            <input type="text" name="nombreProducto" placeholder="" value="<%=prod.getNombreProducto()%>">
-        </label>
-
-        <label>
-            Proveedor:
-            <select name="idProveedor" required>
-                <option value="<%=prod.getIdProveedor()%>" selected class="invisible"><%=prod.getRazonSocial()%></option>
-                <c:forEach var="prov" items="${proveedorList}">
-                    <option value="${prov.getId()}">${prov.getRazonSocial()}</option>
-                </c:forEach>
-            </select>
-        </label>
-        
-        <label>
-            Categoría:
-            <select name="idCategoria" required>
-                <option value="<%=prod.getIdCategoria()%>" selected class="invisible"><%=prod.getNombreCategoria()%></option>
-                <c:forEach var="cat" items="${categoriaList}">
-                    <option value="${cat.getId()}">${cat.getNombreCategoria()}</option>
-                </c:forEach>
-            </select>
-        </label>
-        
-        <label>
-            Precio Unitario:
-            <input type="number" name="precioUnitario" step=".01" min="0.00" value="<%=prod.getPrecioUnitario()%>">
-        </label>
-        
-        <label>
-            Stock:
-            <input type="number" name="unidadesStock" min="0" value="<%=prod.getUnidadesStock()%>">
-        </label>
-        
-        <input type="submit" value="Guardar">
-    </form>
-    <a href="listar.jsp">Regresar</a>
+    <a class="supplierRegisterButton returnButton" href="listar.jsp">
+        <i class="fa-solid fa-rotate-left fa-xl" style="color: #ffffff;"></i>
+        Regresar
+    </a>
+    <div class="registerContainer">
+        <form class="productForm" action="editar.jsp" method="post">
+            <h1>Editar producto</h1>
+            <label class="invisible">
+                Id:
+                <input type="text" name="id" value="<%=idProducto%>">
+            </label>
+            
+            <label>
+                Nombre:
+                <input type="text" name="nombreProducto" placeholder="" value="<%=prod.getNombreProducto()%>">
+            </label>
+            
+            <label>
+                Proveedor:
+                <select name="idProveedor" required>
+                    <option value="<%=prod.getIdProveedor()%>" selected class="invisible"><%=prod.getRazonSocial()%></option>
+                    <c:forEach var="prov" items="${proveedorList}">
+                        <option value="${prov.getId()}">${prov.getRazonSocial()}</option>
+                    </c:forEach>
+                </select>
+            </label>
+            
+            <label>
+                Categoría:
+                <select name="idCategoria" required>
+                    <option value="<%=prod.getIdCategoria()%>" selected class="invisible"><%=prod.getNombreCategoria()%></option>
+                    <c:forEach var="cat" items="${categoriaList}">
+                        <option value="${cat.getId()}">${cat.getNombreCategoria()}</option>
+                    </c:forEach>
+                </select>
+            </label>
+            
+            <label>
+                Precio Unitario:
+                <input type="number" name="precioUnitario" step=".01" min="0.00" value="<%=prod.getPrecioUnitario()%>">
+            </label>
+            
+            <label>
+                Stock:
+                <input type="number" name="unidadesStock" min="0" value="<%=prod.getUnidadesStock()%>">
+            </label>
+            
+            <input class="productRegisterButton" type="submit" value="Guardar">
+        </form>
+    </div>
 </main>
 <%
     try {
