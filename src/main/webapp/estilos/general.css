@@ -17,6 +17,10 @@ body{
 
 a{text-decoration: none; color: gray}
 
+iframe{
+    border: none;
+}
+
 table {
     border-spacing: 0;
     width: 100%;
@@ -29,15 +33,12 @@ table {
     overflow: hidden;
 }
 
-
-
 .tableHeader{
     text-align: center;
 }
 
 .tableButtons{
     text-align: center;
-
 }
 
 td{

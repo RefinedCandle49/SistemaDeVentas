@@ -27,6 +27,8 @@
     <jsp:useBean id="detalleVenta" class="modelo.detalleVenta"/>
     <jsp:setProperty property="*" name="detalleVenta"/>
     <link rel="stylesheet" href="../estilos/general.css">
+    <link rel="stylesheet" href="../estilos/buttons.css">
+    <link rel="stylesheet" href="../estilos/detalleVentaForm.css">
     <title>Agregar detalle venta</title>
 </head>
 <body>
@@ -54,7 +56,7 @@
         </label>
         
         
-        <input type="submit" value="Enviar">
+        <input class="registerButton saleRegisterButton" type="submit" value="Enviar">
     </form>
 </main>
 

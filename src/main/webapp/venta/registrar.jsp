@@ -14,6 +14,10 @@
 <head>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <link rel="stylesheet" href="../estilos/general.css">
+<%--    <link rel="stylesheet" href="../estilos/register.css">--%>
+    <link rel="stylesheet" href="../estilos/detalleVentaForm.css">
+    <link rel="stylesheet" href="../estilos/buttons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Registrar venta</title>
 </head>
 <body>
@@ -30,26 +34,37 @@
     }
 %>--%>
 <main>
-    <form action="registrar.jsp" method="post" target="myframe">
-        <label>
-            Cliente:
-            <input type="text" name="cliente" required>
-        </label>
+    <form class="saleForm" action="registrar.jsp" method="post" target="myframe">
+        <div class="container">
+            <div class="detalleVentaForm">
+                <label>
+                    Cliente:
+                    <input type="text" name="cliente" required>
+                </label>
+                
+                <label>
+                    Empleado:
+                    <select name="idEmpleado" required>
+                        <option value="" disabled selected class="invisible">Seleccionar opción</option>
+                        <c:forEach var="emp" items="${list}">
+                            <option value="${emp.getId()}">${emp.getApellido()}, ${emp.getNombre()}</option>
+                        </c:forEach>
+                    </select>
+                </label>
+                <input class="saleRegisterButton" type="submit" value="Añadir productos">
+            </div>
+            
+
+            <iframe class="table" name="myframe"></iframe>
+
+        </div>
         
-        <label>
-            Empleado:
-            <select name="idEmpleado" required>
-                <option value="" disabled selected class="invisible">Seleccionar opción</option>
-                <c:forEach var="emp" items="${list}">
-                    <option value="${emp.getId()}">${emp.getApellido()}, ${emp.getNombre()}</option>
-                </c:forEach>
-            </select>
-        </label>
-       <%-- <input type="datetime-local" value="<%=obtenerFechaActual()%>" disabled>--%>
-        <iframe name="myframe"></iframe>
-        <input type="submit" value="Registrar">
+        <%-- <input type="datetime-local" value="<%=obtenerFechaActual()%>" disabled>--%>
     </form>
-    <a href="listar.jsp">Regresar</a>
+    <a class="saleRegisterButton returnButton" href="listar.jsp">
+        <i class="fa-solid fa-rotate-left fa-xl" style="color: #ffffff;"></i>
+        Regresar
+    </a>
 </main>
 <%
     try {

@@ -25,7 +25,7 @@
         Regresar
     </a>
     <div class="registerContainer">
-        <form action="registrar.jsp" method="post">
+        <form class="categoryForm" action="registrar.jsp" method="post">
             <h1>Registrar categoría</h1>
             <label>
                 Nombre:
@@ -37,8 +37,7 @@
 <%--                <input type="text" name="descripcion" pattern="[^áéíóúÁÉÍÓÚ]+" title="No se permiten tildes">--%>
                 <textarea name="descripcion" id="" cols="30" rows="10"></textarea>
             </label>
-            
-            <input type="submit" value="Registrar">
+            <input class="categoryRegisterButton" type="submit" value="Registrar">
         </form>
     </div>
 </main>

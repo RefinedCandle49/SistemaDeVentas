@@ -1,0 +1,77 @@
+.saleForm{
+    width: 100%;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0 0;
+    grid-auto-flow: row;
+    grid-template-areas:
+  "form table table"
+  "form table table"
+  "form table table";
+}
+
+.detalleVentaForm {
+    grid-area: form;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+    height: 85vh;
+    font-size: 20px;
+    display: grid;
+    place-content: center;
+    gap: 20px;
+}
+
+.table {
+    grid-area: table;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+    height: 85vh;
+    font-size: 20px;
+    display: grid;
+    place-content: center;
+    gap: 20px;
+    /*border: solid 1px black;*/
+    width: 95%;
+}
+
+/* Estilo para los campos de entrada */
+form input[type="text"],
+form input[type="email"],
+form input[type="number"],
+form select,
+form textarea {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+/* Estilo para el botón de envío */
+form input[type="submit"] {
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.seleccionarProductoFrame{
+    width: 100%;
+}
+
+.verificarCantidad{
+    height: 30vh;
+    width: 100%;
+}
+
+.tablaDetalleVenta{
+    width: 95%;
+    height: 40vh;
+}

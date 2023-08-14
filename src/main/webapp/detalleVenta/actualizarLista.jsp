@@ -24,13 +24,16 @@
     <jsp:setProperty property="*" name="detalleVenta"/>
     <link rel="stylesheet" href="../estilos/general.css">
     <link rel="stylesheet" href="../estilos/tables.css">
+    <link rel="stylesheet" href="../estilos/buttons.css">
+    <link rel="stylesheet" href="../estilos/detalleVentaForm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Agregar Detalle Venta</title>
 </head>
 <body>
 <main>
     <div class="tableContainer">
         <table>
-            <thead>
+            <thead class="saleTableHead">
             <tr>
                 <%--                <th>ID</th>--%>
                 <th>SKU</th>
@@ -41,7 +44,7 @@
                 <th>Total</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="saleTableBody">
             <c:forEach var="detVenta" items="${detalleVentaList}">
                 <tr>
                         <%--                    <td>${vent.getId()}</td>--%>
