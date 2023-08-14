@@ -56,7 +56,7 @@
         </label>
         
         
-        <input class="registerButton saleRegisterButton" type="submit" value="Enviar">
+        <input class="registerButton saleRegisterButton" type="submit" value="Seleccionar producto">
     </form>
 </main>
 

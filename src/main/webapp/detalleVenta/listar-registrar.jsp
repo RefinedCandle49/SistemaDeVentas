@@ -51,7 +51,7 @@
                     </select>
                 </label>
                 
-                <input class="registerButton saleRegisterButton" type="submit" value="Seleccionar">
+                <input class="registerButton saleRegisterButton" type="submit" value="Elegir">
                 
                 <iframe class="seleccionarProductoFrame verificarCantidad" name="miIframe"></iframe>
                 
